@@ -1,0 +1,96 @@
+/* Corps de la page */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: none;  /* Cache le curseur */
+    transition: background-color 0.3s ease;  /* Transition douce pour le fond */
+}
+
+/* Style de la popup */
+.popup {
+    display: none;  /* Par défaut, caché */
+    background: rgba(30, 30, 30, 0.85); /* Fond sombre avec transparence */
+    border-radius: 8px; /* Coins légèrement arrondis */
+    padding: 10px; /* Réduction des marges internes */
+    text-align: left;
+    max-width: 95%;
+    width: 520px;  /* Largeur allongée */
+    box-sizing: border-box; /* Important pour inclure padding/border dans la largeur totale */
+    color: #ffffff;  /* Texte clair */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);  /* Ombre subtile */
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;  /* Transition douce pour l'animation */
+}
+
+/* Style de l'input */
+.popup-input {
+    margin: 8px auto 0; /* Réduction de l'espace entre le popup et l'input */
+    padding: 10px 14px;
+    width: calc(95% - 4px); /* Largeur légèrement augmentée pour s'étendre davantage */
+    font-size: 14px; /* Taille de texte réduite */
+    border-radius: 6px;  /* Coins légèrement arrondis */
+    color: #f5f5f5;  /* Texte clair */
+    background-color: #333;  /* Fond sombre */
+    border: 1px solid #444; /* Bordure fine */
+    outline: none;
+    height: 38px;  /* Taille légèrement augmentée */
+    box-sizing: border-box; /* Inclus bordure et padding dans la largeur totale */
+    transition: all 0.3s ease;
+}
+
+/* Focus sur l'input */
+.popup-input:focus {
+    background-color: #444; /* Fond légèrement plus clair */
+}
+
+/* Style du titre */
+.popup-title {
+    font-size: 16px; /* Taille réduite */
+    font-weight: 600;
+    margin-bottom: 15px; /* Réduction de l'espace */
+    color: #ffffff;
+}
+
+/* Animation d'apparition de la popup */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation de la popup lorsqu'elle est visible */
+.popup.show {
+    animation: fadeIn 0.4s ease-in-out;
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Effet de survol de la popup */
+.popup:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);  /* Ombre légèrement plus prononcée au survol */
+}
+
+/* Si la popup est activée, le curseur ne réapparaît pas */
+body.popup-active {
+    cursor: none;
+}
+
+/* Effet de survol sur l'input */
+.popup-input:hover {
+    background-color: #444; /* Fond légèrement plus clair */
+}
+
+/* Effet de transition de fond pour le corps de la page */
+body.popup-active {
+    background: #e5e5e5; /* Fond de la page plus clair lors de l'activation de la popup */
+}
